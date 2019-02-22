@@ -10,65 +10,29 @@ alert('Hello ' + userName + '! \n\n Let\'s see how well you know me now!');
 var correctAnswersCounter = 0;
 var incorrectAnswersCounter = 0;
 
-var workResponse = prompt('I work in Amazon. Yes or No? ');
-console.log('Work in Amazon ?' , workResponse);
+function askYesOrNoQuestion(questionText, answersToCompare) {
+  var responseAns = prompt(questionText);
+  console.log(questionText,' :: ' , responseAns);
+  var gotCorrectAns = false;
+  for(var j = 0; j < answersToCompare.length ; j++) {
+    if(answersToCompare[j].toUpperCase() === responseAns.toUpperCase()){
+      correctAnswersCounter ++;
+      alert("Awesome! You got it right");
+      gotCorrectAns = true;
+      break;
+    }
+  }
+  if(!gotCorrectAns){
+    incorrectAnswersCounter++;
+    alert("NNNaaahhh...Incorrect Answer");
+  }
+}
 
-    if(workResponse.toUpperCase() === 'Y' || workResponse.toUpperCase() === 'YES') {
-        correctAnswersCounter++;       
-        alert("Awesome! You got it right");
-    }
-    else if(workResponse.toUpperCase() === 'N' || workResponse.toUpperCase() === 'NO') {
-        incorrectAnswersCounter++;
-        alert("NNNaaahhh...I work in Amazon");
-    }
-
-var residenceResponse = prompt('I live in Bellevue. Yes or No? ');
-console.log('Live in Bellevue ?' , residenceResponse);
-    
-    if(residenceResponse.toUpperCase() === 'Y' || residenceResponse.toUpperCase() === 'YES') {
-        correctAnswersCounter++;       
-        alert("Awesome! You got it right");
-    }
-    else if(residenceResponse.toUpperCase() === 'N' || residenceResponse.toUpperCase() === 'NO') {
-        incorrectAnswersCounter++;
-        alert("NNNaaahhh...I live in Bellevue");
-    }
-
-var programmingLanguageResponse = prompt('I\'m proficient in HTML. Yes or No? ');
-console.log('proficient in HTML ?' , programmingLanguageResponse);
-    
-    if(programmingLanguageResponse.toUpperCase() === 'Y' || programmingLanguageResponse.toUpperCase() === 'YES') {
-        correctAnswersCounter++;       
-        alert("Awesome! You got it right");
-    }
-    else if(programmingLanguageResponse.toUpperCase() === 'N' || programmingLanguageResponse.toUpperCase() === 'NO') {
-        incorrectAnswersCounter++;
-        alert("NNNaaahhh...I\'m proficient in HTML");
-    }
-
-var loveSnowResponse = prompt('I love snow. Yes or No? ');
-console.log('Love snow ?' , loveSnowResponse);
-    
-    if(loveSnowResponse.toUpperCase() === 'Y' || loveSnowResponse.toUpperCase() === 'YES') {
-        correctAnswersCounter++;       
-        alert("Awesome! You got it right");
-    }
-    else if(loveSnowResponse.toUpperCase() === 'N' || loveSnowResponse.toUpperCase() === 'NO') {
-        incorrectAnswersCounter++;
-        alert("NNNaaahhh...I love snow... You missed noticing my picture");
-    }
-
-var databaseResponse = prompt('I know DynamoDB. Yes or No? ');
-console.log('Love snow ?' , databaseResponse);
-    
-    if(databaseResponse.toUpperCase() === 'Y' || databaseResponse.toUpperCase() === 'YES') {
-        correctAnswersCounter++;       
-        alert("Awesome! You got it right");
-    }
-    else if(databaseResponse.toUpperCase() === 'N' || databaseResponse.toUpperCase() === 'NO') {
-        incorrectAnswersCounter++;
-        alert("NNNaaahhh...I know DynamoDB");
-    }
+askYesOrNoQuestion('I work in Amazon. Yes or No? ', ['Y', 'YES']);
+askYesOrNoQuestion('I live in Redmond. Yes or No? ', ['N', 'NO']);
+askYesOrNoQuestion('I love snow. Yes or No? ', ['Y', 'YES']);
+askYesOrNoQuestion('I know DynamoDB. Yes or No? ', ['Y', 'YES']);
+askYesOrNoQuestion('I\'m proficient in HTML. Yes or No? ', ['Y', 'YES']);
 
 
 var favNumber =0;
