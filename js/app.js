@@ -22,7 +22,7 @@ console.log('Work in Amazon ?' , workResponse);
         incorrectAnswersCounter++;
         alert("NNNaaahhh...I work in Amazon");
     }
-
+/*
 var residenceResponse = prompt('I live in Bellevue. Yes or No? ');
 console.log('Live in Bellevue ?' , residenceResponse);
     
@@ -70,6 +70,27 @@ console.log('Love snow ?' , databaseResponse);
         incorrectAnswersCounter++;
         alert("NNNaaahhh...I know DynamoDB");
     }
+*/
+
+var statesWorked = ['washington', 'oregon', 'arkansas', 'california', 'tennessee' ];
+var statesAnswer = prompt('Do you remember one of the states that I worked ?');
+var correctAnswerFlag;
+    
+    for (var i = 0; i < statesWorked.length; i++) {
+        console.log('current iteration:', statesWorked[i]);
+    
+        if (statesAnswer.toLowerCase() === statesWorked[i]) {
+            alert('you got it right!');
+            correctAnswerFlag = true;
+            correctAnswersCounter++;
+            break;
+        }
+    }
+    
+    if (!correctAnswerFlag) {
+        incorrectAnswersCounter++;
+        alert('incorrect guess - try again');
+    }    
 
 console.log("correctAnswersCounter:", correctAnswersCounter);
 console.log("incorrectAnswersCounter:", incorrectAnswersCounter);
