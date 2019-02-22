@@ -7,7 +7,6 @@ var userName = prompt('Thank you for visiting my Blog. \n\n Please enter your na
 console.log('Username: ', userName);
 
 alert('Hello ' + userName + '! \n\n Let\'s see how well you know me now!');
-
 var correctAnswersCounter = 0;
 var incorrectAnswersCounter = 0;
 
@@ -22,7 +21,7 @@ console.log('Work in Amazon ?' , workResponse);
         incorrectAnswersCounter++;
         alert("NNNaaahhh...I work in Amazon");
     }
-/*
+
 var residenceResponse = prompt('I live in Bellevue. Yes or No? ');
 console.log('Live in Bellevue ?' , residenceResponse);
     
@@ -70,27 +69,56 @@ console.log('Love snow ?' , databaseResponse);
         incorrectAnswersCounter++;
         alert("NNNaaahhh...I know DynamoDB");
     }
-*/
+
+
+var favNumber =0;
+var attempts = 0;
+var favNumberCorrectFlag = false; 
+while (favNumber !== 10 && attempts < 4) {
+    favNumber = parseInt(prompt('Do you remember my favorite number ?'));
+    console.log('favNumber:', favNumber);
+
+    if (favNumber < 10) {
+        alert('sorry you guessed too low');
+        attempts++;
+    } else if (favNumber > 10) {
+        alert('you guessed too high');
+        attempts++;
+    } else if (isNaN(favNumber) || favNumber === null) {
+        alert('please enter an actual number');
+        attempts++;
+    } else if (favNumber === 10) {
+        alert('You guessed ir right ! ');
+        correctAnswersCounter++;
+        favNumberCorrectFlag = true;
+    }
+    console.log('attempts:', attempts);
+}
+
+if (!favNumberCorrectFlag) { 
+incorrectAnswersCounter++;
+}
 
 var statesWorked = ['washington', 'oregon', 'arkansas', 'california', 'tennessee' ];
 var statesAnswer = prompt('Do you remember one of the states that I worked ?');
-var correctAnswerFlag;
+console.log('statesAnswer:', statesAnswer);
+var correctStatesAnswerFlag = false;
     
-    for (var i = 0; i < statesWorked.length; i++) {
-        console.log('current iteration:', statesWorked[i]);
-    
-        if (statesAnswer.toLowerCase() === statesWorked[i]) {
-            alert('you got it right!');
-            correctAnswerFlag = true;
-            correctAnswersCounter++;
-            break;
-        }
+for (var i = 0; i < statesWorked.length; i++) {
+    console.log('current iteration:', statesWorked[i]);
+
+    if (statesAnswer === statesWorked[i]) {
+        alert('you got it right!');
+        correctStatesAnswerFlag = true;
+        correctAnswersCounter++;
+        break;
     }
-    
-    if (!correctAnswerFlag) {
-        incorrectAnswersCounter++;
-        alert('incorrect guess - try again');
-    }    
+}
+
+if (!correctStatesAnswerFlag) {
+    alert('incorrect guess ');
+    incorrectAnswersCounter++;
+}
 
 console.log("correctAnswersCounter:", correctAnswersCounter);
 console.log("incorrectAnswersCounter:", incorrectAnswersCounter);
